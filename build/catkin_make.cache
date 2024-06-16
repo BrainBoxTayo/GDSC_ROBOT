@@ -1,0 +1,2 @@
+robot_description
+-DCATKIN_DEVEL_PREFIX=/home/brainboxtayo/new_practice_ws/devel -DCMAKE_INSTALL_PREFIX=/home/brainboxtayo/new_practice_ws/install -G Unix Makefiles

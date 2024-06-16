@@ -1,0 +1,171 @@
+<?xml version="1.0"?>
+<robot name="robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find robot_description)/urdf/materials.xacro" />
+  <!-- <xacro:include
+  filename="$(find robot_description)/urdf/robot.trans" /> -->
+<xacro:include filename="$(find robot_description)/urdf/robot.gazebo" />
+  <link name="dummy"></link>
+  <joint name="BASE_DUMMY" type="fixed">
+    <parent link="dummy"/>
+    <child link="base_link"/>
+  </joint>
+  <link name="base_link">
+    <inertial>
+      <origin xyz="-0.004690606601262755 -0.0006425987553997995 0.030515102964434798" rpy="0 0 0"/>
+      <mass value="4.4495589047824"/>
+      <inertia ixx="0.004505" iyy="0.012996" izz="0.016333" ixy="0.0" iyz="-0.0" ixz="0.000373"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://robot_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://robot_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  
+  <link name="LONG_ROD_1">
+    <inertial>
+      <origin xyz="-4.7039776361612606e-07 3.7747709572379454e-07 -1.5861750109202877e-07" rpy="0 0 0"/>
+      <mass value="0.09864600932271947"/>
+      <inertia ixx="0.000211" iyy="1e-06" izz="0.000211" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.059929 0.000643 -0.028396" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://robot_description/meshes/LONG_ROD_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin xyz="0.059929 0.000643 -0.028396" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://robot_description/meshes/LONG_ROD_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  
+  <link name="RIGHT_WHEEL_1">
+    <inertial>
+      <origin xyz="-4.703977669884285e-07 -0.0053165239671758985 -1.586175011232538e-07" rpy="0 0 0"/>
+      <mass value="0.0787935005491991"/>
+      <inertia ixx="5.2e-05" iyy="9.7e-05" izz="5.2e-05" ixy="0.0" iyz="0.0" ixz="0.0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.059929 -0.079357 -0.028396" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://robot_description/meshes/RIGHT_WHEEL_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin xyz="0.059929 -0.079357 -0.028396" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://robot_description/meshes/RIGHT_WHEEL_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  
+  <link name="LEFT_WHEEL_1">
+    <inertial>
+      <origin xyz="-4.7039775963320096e-07 0.005317278921367477 -1.5861750114753992e-07" rpy="0 0 0"/>
+      <mass value="0.0787935005491991"/>
+      <inertia ixx="5.2e-05" iyy="9.7e-05" izz="5.2e-05" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.059929 0.080643 -0.028396" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://robot_description/meshes/LEFT_WHEEL_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin xyz="0.059929 0.080643 -0.028396" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://robot_description/meshes/LEFT_WHEEL_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  
+  <link name="SHORT_ROD_1">
+    <inertial>
+      <origin xyz="-4.7039797227560465e-07 3.7747709555758634e-07 -1.5861750122581932e-07" rpy="0 0 0"/>
+      <mass value="0.001479690139840857"/>
+      <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+    </inertial>
+    <visual>
+      <origin xyz="-0.060071 0.000643 0.001604" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://robot_description/meshes/SHORT_ROD_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin xyz="-0.060071 0.000643 0.001604" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://robot_description/meshes/SHORT_ROD_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  
+  <link name="FRONT_WHEEL_1">
+    <inertial>
+      <origin xyz="-4.7039776295693114e-07 3.774770956737044e-07 -1.5861750995429733e-07" rpy="0 0 0"/>
+      <mass value="0.014205025342471582"/>
+      <inertia ixx="0.0" iyy="1e-06" izz="0.0" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+    </inertial>
+    <visual>
+      <origin xyz="-0.060071 0.000643 0.001604" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://robot_description/meshes/FRONT_WHEEL_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin xyz="-0.060071 0.000643 0.001604" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://robot_description/meshes/FRONT_WHEEL_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  
+  <joint name="base_LONG" type="fixed">
+    <origin xyz="-0.059929 -0.000643 0.028396" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="LONG_ROD_1"/>
+  </joint>
+  
+  <joint name="LONG_RIGHT" type="continuous">
+    <origin xyz="0.0 0.08 0.0" rpy="0 0 0"/>
+    <parent link="LONG_ROD_1"/>
+    <child link="RIGHT_WHEEL_1"/>
+    <axis xyz="-0.0 -1.0 -0.0"/>
+  </joint>
+  
+  <joint name="LONG_LEFT" type="continuous">
+    <origin xyz="0.0 -0.08 0.0" rpy="0 0 0"/>
+    <parent link="LONG_ROD_1"/>
+    <child link="LEFT_WHEEL_1"/>
+    <axis xyz="-0.0 -1.0 -0.0"/>
+  </joint>
+  
+  <joint name="base_FRONT" type="fixed">
+    <origin xyz="0.060071 -0.000643 -0.001604" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="SHORT_ROD_1"/>
+  </joint>
+  
+  <joint name="FRONT_FRONTW" type="fixed">
+    <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+    <parent link="SHORT_ROD_1"/>
+    <child link="FRONT_WHEEL_1"/>
+  </joint>
+  
+</robot>

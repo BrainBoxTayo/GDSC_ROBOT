@@ -1,0 +1,11 @@
+<launch>
+  <param name="robot_description" command="$(find xacro)/xacro --inorder $(find robot_description)/urdf/robot.xacro"/>
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+  </include>
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model robot"/>
+  
+  <rosparam command="load" file="$(find robot_description)/config/control.yaml" />
+  <node name="controller_spawner" pkg="controller_manager"
+  type="spawner" output="screen" args="robot_joint_publisher
+  robot_velocity_controller"/>
+</launch>

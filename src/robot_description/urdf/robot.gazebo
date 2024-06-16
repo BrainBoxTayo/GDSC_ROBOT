@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<robot name="robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:property name="body_color" value="Gazebo/Silver" />
+
+  <gazebo>
+    <plugin name="control" filename="libgazebo_ros_control.so">
+      <controlPeriod>0.001</controlPeriod>
+      <legacyModeNS>false</legacyModeNS>
+    </plugin>
+  </gazebo>
+  <!--################################
+  ROS-Controllers ######################################-->
+  <gazebo>
+    <plugin name="diff_drive_controller" filename="libgazebo_ros_diff_drive.so">
+      <legacyMode>false</legacyMode>
+      <alwaysOn>true</alwaysOn>
+      <updateRate>1000.0</updateRate>
+      <leftJoint>LONG_LEFT</leftJoint>
+      <rightJoint>LONG_RIGHT</rightJoint>
+      <wheelSeparation>0.16</wheelSeparation>
+      <wheelDiameter>0.082</wheelDiameter>
+      <wheelTorque>10</wheelTorque>
+      <publishTf>1</publishTf>
+      <odometryFrame>map</odometryFrame>
+      <commandTopic>cmd_vel</commandTopic>
+      <odometryTopic>odom</odometryTopic>
+      <robotBaseFrame>base_link</robotBaseFrame>
+      <wheelAcceleration>2.8</wheelAcceleration>
+      <publishWheelJointState>true</publishWheelJointState>
+      <publishWheelTF>false</publishWheelTF>
+      <odometrySource>world</odometrySource>
+      <rosDebugLevel>Debug</rosDebugLevel>
+    </plugin>
+  </gazebo>
+
+  <gazebo reference="base_link">
+    <material>${body_color}</material>
+    <selfCollide>true</selfCollide>
+    <gravity>true</gravity>
+  </gazebo>
+
+  <gazebo reference="RIGHT_WHEEL_1">
+    <material>${body_color}</material>
+    <mu1>1.0</mu1>
+    <mu2>1.0</mu2>
+    <selfCollide>true</selfCollide>
+  </gazebo>
+
+  <gazebo reference="LEFT_WHEEL_1">
+    <material>${body_color}</material>
+    <mu1>1.0</mu1>
+    <mu2>1.0</mu2>
+    <selfCollide>true</selfCollide>
+  </gazebo>
+
+  <gazebo reference="FRONT_WHEEL_1">
+    <material>${body_color}</material>
+    <mu1>0.0</mu1>
+    <mu2>0.0</mu2>
+    <selfCollide>true</selfCollide>
+  </gazebo>
+
+</robot>
